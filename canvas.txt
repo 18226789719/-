@@ -1,0 +1,145 @@
+Canvas
+序言
+​ 在渲染复杂的动效、把数据可视化图形显示、游戏场景等需求，都会用canvas技术，比dom操作性能更高
+​ 特点
+​ ① H5新增的图形标签，通过提供的JavaScript函数绘制各种图表或利用算法实际非常华丽的动效
+​ ② 在以前是用Flash技术实现，但不能和JS交互,
+​ ③ 适合动态图形绘制
+​ 缺点
+​ 是位图，缩放会模糊
+API
+环境 目前只有2d绘制
+getContext('2d')	 创建2D绘制环境 
+
+绘制矩形
+rect(x,y,w,h)		绘制矩形
+fillRect(x,y,w,h)    绘制填充实心矩形
+strokeRect(x,y,w,h)  绘制空心矩形
+clearRect(x,y,w,h)   清除矩形选区
+
+绘制方式
+stroke( )			以边框线的方式绘制图形，默认填充黑色
+fill( )				以填充的方式绘制图形，默认填充黑色
+
+绘制样式属性
+fillStyle				填充颜色
+strokeStyle			触笔颜色
+lineWidth			触笔粗细(线宽)
+ 绘制线条
+moveTo(x,y)			 从x,y开始绘制
+lineTo(x,y)			 绘制到x，y
+
+图形路径
+beginPath()			 开始路径
+closePath()			 结束路径
+
+图形边界样式属性
+lineJoin 			边界连接点样式
+		miter(默认值)
+		round(圆角)
+		bevel(斜角)
+lineCap 			端点样式
+		butt(默认值)
+		round(圆角)
+		square(高度多出线宽一半)
+
+
+
+三角函数讲解
+
+绘制圆形
+1角度 = 1* Math.PI/ 180弧度
+1弧度 = 1* 180 / Math.PI 角度
+arc(x,y,r,0,360,false)
+	      x,y  		圆心坐标位置
+	      r 		圆半径 
+	      0,360 	从0度到360度所对应的弧度 (弧度: 角度值*Math.PI/180)
+	      true/false 逆时针/顺时针绘图
+
+变换
+translate(x,y)		 重新定义坐标原点基准点
+rotate				旋转角度所对应的弧度 :  弧度公式 ：角度*PI/180
+scale(1,1)			 缩放图形宽高
+
+独立路径 不影响上下文路径
+save()				保存路径		  
+restore()			恢复路径
+
+绘制img/video
+图片预加载，获取图片文件，顾名思义，WEB中的预加载就是在网页全部加载之前，对一些主要内容进行加载，以提供给用户更好的体验，减少等待的时间。否则，如果一个页面的内容过于庞大，没有使用预加载技术的页面就会长时间的展现为一片空白，直到所有内容加载完毕。
+var img = new  Image( )
+img.onload = fn
+drawImage(img,x,y,w,h)
+绘制图片(img,从img图片的x点开始绘制,从img图片的y点开始绘制,绘制的img宽度,绘制的img高度,绘制在画布的x点,绘制在画布的y点，绘制的图形宽度，绘制的图形高度)
+
+设置填充背景
+createPattern(img,平铺方式)
+	平铺方式:repeat,repeat-x,repeat-y,no-repeat
+
+颜色渐变
+线性渐变:createLinearGradient(x1,y1,x2,y2)  
+	x1,y1起始坐标点
+	x2,y2结束坐标点
+径向渐变:createRadialGradient(x1,y1,r1,x2,y2,r2)
+	x1,y1,r1内圆坐标及半径
+	x2,y2,r2外圆坐标及半径
+addColorStop(位置,颜色)
+	位置:渐变点  0-1之间 可多个
+
+绘制曲线
+arcTo(x1,y1,x2,y2,r)；
+	x1,y1坐标一  x2,y2坐标二   r圆弧半径 	
+quadraticCurveTo(dx,dy,x1,y1)
+	贝塞尔曲线:dx,dy控制点  x1,y1结束坐标
+bezierCurveTo(dx1,dy1,dx2,dy2,x1,y1)
+	贝塞尔曲线:dx1,dy1 控制点一 dx2,dy2控制点二 x1,y1结束坐标
+
+
+绘制文本属性
+	strokeText(文本,x,y)  	绘制空心文本
+	fillText(文本,x,y)		绘制实心文本
+	font = "font-size  font-family" 	注:尺寸 字体缺一不可
+	textAlign = ""			文本左右对齐方式 
+		start center end  left right
+	textBaseline			文本上下对齐方式 
+		alphabetic			默认。文本基线是普通的字母基线
+		top					文本基线是 em 方框的顶端
+		hanging				文本基线是悬挂基线
+		middle				文本基线是 em 方框的正中
+		ideographic			文本基线是表意基线。
+		bottom				文本基线是 em 方框的底端。
+	measureText	(文本).width 文本实际宽度(只有宽度值)
+
+阴影属性
+	shadowOffsetX,shadowOffsetY    x轴、y轴偏移
+	shadowBlur    	阴影模糊度
+	shadowColor  	阴影颜色
+	默认颜色:rgba(0,0,0,0)
+
+像素操作
+	createImageData(sx,sy)
+		创建新的、空白的 ImageData 对象
+	getImageData(x1,y1,w,h)
+		返回 ImageData 对象，该对象为画布上指定的矩形复制像素数据	putImageData(img,x2,y2)
+		把图像数据（从指定的 ImageData 对象）放回画布上
+
+合成
+    globalAlpha  	设置或返回绘图的当前 alpha 或透明值
+    globalCompositeOperation 设置或返回新图像如何绘制到已有的图像上
+	source-over		默认。在目标图像上显示源图像。
+	source-atop		在目标图像顶部显示源图像。源图像位于目标图像之外的部分是不可见的。
+	source-in		在目标图像中显示源图像。只有目标图像内的源图像部分会显示，目标图像是透明的。
+	source-out		在目标图像之外显示源图像。只会显示目标图像之外源图像部分，目标图像是透明的。
+	destination-over	在源图像上方显示目标图像。
+	destination-atop	在源图像顶部显示目标图像。源图像之外的目标图像部分不会被显示。
+	destination-in		在源图像中显示目标图像。只有源图像内的目标图像部分会被显示，源图像是透明的。
+	destination-out		在源图像外显示目标图像。只有源图像外的目标图像部分会被显示，源图像是透明的。
+	lighter				显示源图像 + 目标图像。
+	copy				显示源图像。忽略目标图像。
+	xor					使用异或操作对源图像与目标图像进行组合。
+
+将画布导出为图片
+	火狐、谷歌浏览器右键菜单可直接导出为图片
+Canvas.toBlob()		把canvas图片数据 转换成 blob对象
+	canvas.toDataURL()		默认导出data:png;base64编码的二进制URL
+	canvas.toDataURL('image/jpeg')		导出data:jpg;base64编码的二进制URL

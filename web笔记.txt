@@ -1,0 +1,576 @@
+
+。
+                                                       		html标签
+<ul>	无序列表标签			
+	<li></li>				
+</ul>
+
+<ol type="">	有序列表标签
+	<li></li>
+</ol>
+
+<dl>	 自定义标签
+	<dt></dt>
+		<dd></dd>
+		<dd></dd>
+	dt></dt>
+		<dd></dd>
+		<dd></dd>
+</dl>
+
+<p></p>	段落标签
+
+<b></b>	文本加粗
+
+<strong></strong>	强调文本加粗，给搜索引擎看的
+
+<i></i>  	        字体斜体标签
+
+<em></em>	强调 字体斜体标签，给搜索引擎看的
+
+<img src=""  width=''   heigth=''   alt='标志性文本，类似关键词'>	图片标签		../上一级
+
+<video src='' controls  autoplay  muted静音  loop></video>	视频标签，autoplay在muted存在的情况下自动播放,
+
+<audio src=''   controls     autoplay    loop><audio>	音频标签		controls:调出播放组件								autoplay:自动播放	loop:循环播放
+
+<embed src=""  type=""  >	//音频
+
+<a href="路径/#+标签" target="_blank 新窗口打开/_self 原窗口打开"  download/可下载></a>
+		#+标签	跳到相应的标签位置	 	id选择器		text-decoration:none;
+								去除a标签下划线
+
+<link rel="stylesheet" href="css样式表的路径">定义连接的文件与html文档之间的关系
+
+<p>
+	<span></span>	体现出与其他文本的差异性
+</p>
+
+<input type='text文本框/password密码框'></input>
+
+<sup></sup'>平方标签
+<sub></sub>下标标签
+
+contenteditable = true	//使得标签可编辑，强制获取焦点
+----------------------------------------------------------------------------------------------------------------------------
+H5新增结构标签	语义化标签，可增加权重
+<header></header>	//头部标签
+<nav></nav>		//导航栏标签
+<section></section>	//定义一个独立的区域，对网页中的内容进行分块			相当于div
+<article></article>	//在页面中独立的内容，一篇文章，一个帖子，一个博客文章…………	相当于p
+<aside></aside>		//侧边栏
+<footer></footer>	//文档底部 
+<figure>			//一块独立的“图片区域”,可以包含1个或多个img标签
+	<figcaption></figcaption>	//标题，和figure一起
+</figure>		
+<hgroup>		//标题标签组合
+	<h1></h1>
+</hgroup>
+<mark></mark>		//重点显示--表示突出重点
+<meter min="1" max="100" value="50当前值" low="" high="" optimum=""></meter>	//进度标签,尺度
+<progress min="" max="" value=""></progress>	//进度条标签
+<dialog></dialog>	//开始标签  属性  open--用于打开该标签
+<derails>		//用于创建一个公开部件，没有办法让开放和封闭之间的过渡动画
+	<summary></summary>	//标题
+	<p></p>
+</derails>
+========================================================================
+
+                                               			 css样式
+<style>
+	div{	标签选择器
+		width:数值+px;	宽
+		heigth:数值+px	高
+		background:颜色;	背景色		background-image:url(图片地址)背景图片							background-repeat:repeat/no-repeat;		背景图片是否平铺
+		background-position-x:left/riget/center/100%;居左/居右/居中	
+						水平轴同理还有y轴可用百分制调节位置,也可用像素
+		background-position:0%   0%    /0%默认第二个居中；复合写法、
+		background-size:0  0        /contain等比例缩放/cover等比例覆盖整个背景;	控制背景图片的大小
+		background-clip:border-box/padding-box/content-box;		控制背景色从哪一部分开始绘制
+		background-origin::border-box/padding-box/content-box;	控制背景图片从哪一部分绘制
+		background-attachment:fixed背景图片附在浏览器窗口，不随网页滚动而变化 / scroll（默认）背景图片附在容器里
+			当加了fixed后背景position和背景size是就变成相对于浏览器窗口了
+
+	复合写法：background: red url("") no-repeat center top位置 / 200px大小 fixed ;			
+
+		color:颜色	文本颜色
+		font-size:0px;	控制文字大小	默认为16px	最小为12px
+		list-style:none;	去除无序列表的样式
+		list-style-type:none;去除无序列表前的小圆点
+	}
+	.+名字{   .+名字	class选择器
+	}
+
+	#+名字{   #+名字    id选择器
+	}
+
+	选择器+空格+选择器{	后代选择器   空格决定
+	} 
+
+	选择器+加号+选择器{	相邻兄弟选择器   加号决定 选择相连的
+	} 
+
+	选择器+~+选择器{		普通兄弟选择器   ~决定 
+	} 
+
+	选择器+>+选择器{		子代选择器  >决定 
+	} 
+
+	*{			通配符选择器     选择所有标签
+	}
+
+</style>层叠样式表
+	选择器的权重比较
+id选择器>class选择器>标签选择器>通配符选择器
+==================================================== ====================
+
+					盒子模型
+
+	盒模型的宽度=width+padding+border      高度=width+padding+border 
+	box-sizing:content-box/border-box;	      控制盒模型：标准盒模型/怪异盒    怪异盒只需设置宽高 ：手机网页用
+	标准盒模型padding在content外	怪异盒模型padding在content内
+<style>
+	div{//border边框      四个值写法上右下左  顺时针方向   3个值写法上  左右  下  2值写法上下   左右
+  		border-width:0px 0px 0px 0px ;		设置边框的宽度，
+		border-style:solid dashed dotted solid double;	设置边框线性样式：
+							solid实线dashed虚线dotted点线double双边框线
+		border-color:颜色 颜色 颜色 颜色;		设置边框颜色
+		border:数值+px  solid   颜色;	复合写法
+	}
+	div{	//border-方向-属性：设置单个方向边框
+		border-top-color:颜色；	上边框的颜色
+		border-top-width:像素;	上边框的像素
+		border-top-style:线性；	上边框的线性
+		border-right-		右边框同理
+		bordet-left-		左边框同理
+		border-bottom-		下边框同理
+·		border-top：像素  颜色 线性；	上边框复合写法
+		border-right：像素  颜色  线性；	右边框复合写法
+		bordet-left：像素  颜色  线性；	左边框复合写法
+		border-bottom：像素  颜色  线性；	下边框复合写法
+		border-top:none;			去除上边框
+	}	//transparent 透明色    none  没有
+	
+	div{//padding内边距	margery外边距可取负值
+		padding=0px；     可以改变盒子大小
+		margin=0px;       自身盒子的边界到外部盒子的边界的距离     改变盒子位置                                                                 margin水平方向可加	垂直方向正正值较大值会覆盖较小值 	//杜绝出现外边距合并的情况
+					              正负值相加     
+					              负负取更负值 
+解决方案：兄弟盒子		中间增加一个标签，设置边框为1px，透明色/伪元素
+	 嵌套盒子		给父级设置overflow:hidden;/给父级设置padding/给父级设置边框,即生成bfc环境
+		margin;auto；居中
+	}
+
+	overflow:	hidden		溢出隐藏		//超出盒子范围处理方式
+</style>
+=======================================================================
+
+					元素的分类
+     				 document.designMode='on'打开文件样式
+看display属性	//除了块级元素，其余都是行级元素
+块级元素：block		常见的标签：div p dl dt dd ol ul li h1-h6 ......
+			1.独占一行
+			2.支持宽高,margin，auto，padding
+			3.可容纳块级和行级
+			4.p标签不能包裹块级标签（控制台检查）
+行内元素：inline		常见的标签：a  img  span  strong i  b em......	
+			1.margin上下无效，padding上下只对自身有效，不支持auto		
+			2.行级不能包含块级（a标签除外）
+			3.a标签不能套a标签）（控制台检查）
+行内块元素：inline-block		input		输入文本框
+display:block/inline/inline-block/none;	转换元素属性     none隐藏
+					行内快之间的空隙，父级字体大小设置为0，本身重新设置大小/空白是回车导致的
+
+鼠标样式：cursor:pointer小手掌/move表示对象可以移动/wait表示正在加载/help表示需要帮助/url(1.jpg),pointer									          自定义鼠标样式
+
+visibility:hidden;	隐藏元素，元素不可见，但实际存在，对网页布局有用
+
+opacity:0-1;	透明度
+
+看是否为替换元素：
+	替换元素：img/video/audio/input
+	非替换元素：div/p/ul/li/a
+
+=======================================================================
+					文字和文本
+src:url(路径);	外在字体引入
+font-weight:normal/bold加粗/bolder更粗/lighter更细;	100~900定义粗细	字体加粗
+font-size:12px;字体大小
+font-style:normal/italic斜体/oblique倾斜/inherit从父元素继承字体样式;	字体样式
+font-variant:normal/small-caps小型大写字母/inherit从父元素继承属性;
+font-family:字体;	更改文字的一种字体
+
+text-align:left/right/center/justify两端对齐/inherif父元素继承
+direction:ltr左到右/rtl右到左/inherif;
+letter-spacing: normal/0px;设置字符间距
+text-decoration:none/underline下划线/overline上划线/line-through中划线/blink定义闪烁的文本;		添加到文本的装饰 
+text-indent:0px/%/inherif;		文本缩进
+text-transform:none/capitalize每个单词大写开头/uppercase大写字母/lowercase小写字母/inherif;		控制文本大小写
+text-shadow:2px水平位置  2px垂直位置   2px模糊半径   颜色;
+word-wrap:normal/break-word长单词换行;
+word-spacing:0px;		设置单词之间的距离 
+white-space:normal/nowrap文本不换行;	设置文本是否换行
+overflow:hidden;		溢出隐藏
+ text-overflow:clip(默认)/ellipsis省略号代替溢出的元素
+
+======================================================================
+					垂直对齐和圆角属性
+
+圆角属性
+border-radius:0 0 0 0;	左上  右上  右下  左下	三个值：左上  右上左下  右下
+		两个值：  左上右下  右上左下		一个值：四个角都一样
+
+垂直对齐		//作用于行内元素上		块级是没有基线对齐的
+vertical-align:middle中线对齐/baseline(默认)基线对齐/top元素顶端对齐/text-top文本顶端对齐		//相对于父元素
+line-height:父级
+font-size:0;
+
+解决图片下方间隙问题：
+	1.使用除基线以外的属性
+	2.将图片变成块级
+	3.图文之间居中对齐，需要给，对齐的，行内，行内快元素每人来个middle；
+======================================================================
+					浮动和伪元素
+浮动	//修改元素为inline-block，加了浮动的元素叫浮动元素，会形成一个浮动流	最初的目的是解决文字环绕问题
+特点：具有包裹性(默认情况)。不支持margin:auto                         
+float:left左到右/right右到左		使块级元素漂浮
+
+对父级元素的影响：	造成父级元素高度坍塌，子元素无法撑开父级元素
+
+生成BFC环境（块级格式化上下）BFC是一种布局环境
+
+半脱离文档流		普通文档流：块级自上而下，行内和行内快自左向右
+层叠上下文：block<float<inline/inline-block
+
+BFC环境规则：block  formatting  content-----块级格式化上下文
+	1.在同一个BFC内部，相邻盒子在竖直方向不会出现margin合并（float元素不会出现外边距合并）
+	2.在计算BFC的高度时，会计算浮动元素的高度（用来清除浮动）
+生成BFC环境：(父元素中添加)
+	display:inline-block;
+	float:left/right;
+	position:absolute/fixed;
+	overflow:hidden;
+	根标签
+解决父元素高度坍塌的方法：
+	设置父级元素的height
+	生成BFC环境
+	清除浮动元素的浮动属性
+	在浮动元素后面添加一个有clear属性的元素
+	使用after伪元素模拟元素来清除浮动	（企业常规用法）
+		例：给box解决高度坍塌 	.clearfix/.box : after{content:"";  display:block;  clear:both;}
+---------------------------------------------------------------------------------------------------------------------
+伪元素//在元素内添加空元素，本质是行内元素
+.box:after{	//在什么之后添加元素。。。box后面添加“内容”		：after	行内元素
+	content:"内容，该属性不可缺少，激活伪元素"；
+	后面可写修饰content的属性
+}
+
+.box:before{	//在什么之前添加元素。。。box前面添加“内容”		：before	行内元素
+	content:"内容，该属性不可缺少，激活伪元素";
+}
+
+===========================================================================
+					定位
+position:relative相对定位/absolute绝对定位/fixed固定定位
+
+相对定位是以自身原来的位置为参照物，移动后还是存在于文档流中，占据着原来的位置，与浮动不同，不会改变元素特性
+绝对定位默认是以浏览器窗口为参照物，可以指定最近的一个position：relative的长辈元素为参照物移动后脱离文档流，
+				在自己位置的上面，不占据位置，提升了层级。不支持auto，宽高由内容撑开
+固定定位固定是以浏览器窗口为参照物，不能被更改，脱离文档流，不占位置
+
+top : 0px;		向上移动		top和bottom同时写只会执行bottom
+right : 0px ;	向右移动		left和right同时写只会执行left
+bottom : 0px 	向下移动
+left : 0px ;	向左移动
+margin:auto;	通过方向属性top/right/bottom/left都为0控制居中
+
+z-index：1；	可以改变元素覆盖的顺序，值越大越往上		只在定位中生效，提升层级,且是同级元素
+
+=============================================================================
+					伪类选择器
+选择器，选择器，选择器，......{}	对于拥有同一属性的使用
+
+动态伪类选择器：以a标签为例
+		a : link		选到未被访问过的a标签	只能用在a标签
+		a : visited		选到已被访问过的a标签	只能用在a标签
+		a : hover		选到鼠标经过时的元素	用于任何标签
+		a : active		选到鼠标按住时的元素	用于任何标签
+	这四个一起使用时一定要按照一定顺序写：link > visited > hover > active
+css3新增的选择器：结构伪类，child用于相同标签，type用于标签比较杂的
+	: nth-child(第几个元素/odd奇/even偶/数学表达式)	从上到下选到第几个子元素
+	: nth-last-child(第几个元素/odd奇/even偶/数学表达式2n)	从下到上选到第几个子元素
+	: nth-of-type()					从上到下选到相同标签类型的第几个子元素
+	: nth-last-of-type()					从下到上选到相同标签类型的第几个子元素
+	: only-of-type					选到父元素内的唯一一种元素
+	: frist-child					选到第一个子元素
+	: last-child					选到最后一个子元素
+	: empty						选到没有（子元素/文本）的元素
+	: not(选择器名称)					取反选择器	例  :not(:empty)
+属性伪类选择器：以 img 为例子
+	img[class="box"]		选中具有class属性，并且值全部等于box的标签，不能有其他类名
+	img[class ~="box"]	选中具有class属性，并且值有box类名的标签，不是模糊匹配
+	img[class ^= "box"]	选中具有class属性，并且属性值以box开头的标签，模糊匹配
+	img[class $= "jpeg"]	选中具有class属性，并且属性值以jpeg结尾的标签，模糊匹配
+	img[class *= "g"]		选中具有class属性，并且属性值有g的标签，模糊匹配
+
+伪元素选择器：css3中是双冒号
+	:: first-letter					选到元素的第一个字
+	:: first-line					选到元素的第一行文字
+	:: before		content的属性激活伪元素		在元素内容前插入内容
+	:: after		content的属性激活伪元素		在元素内容后插入内容
+	:: selection					选到被用户选到的元素,::前不需要选择器
+=============================================================================
+					过渡
+transition:width 2s 0.5s linear;复合属性				//只能对数值的变化起作用
+transition-duration:	设置过渡度时间
+transition-delay:		设置过渡的延迟时间
+transition-property:width；	设置过渡属性	例如：只过渡宽，其余属性不变
+transition-timing-function:linear匀速/ease慢快慢/ease-in慢快/ease-out快慢 / ease-in-out开始和结束慢 / 贝塞尔曲线cubic-bezier(.64,1.8,.72,-0.94) 
+===============================================================================
+					3D和2D
+2D
+transform:translateX/Y/Z ( 0px ) / translate ( x, y) ;	向X/Y/Z方向移动,平移变换
+	rotateX/Y/Z ( 0deg ) / rotate ( x , y , z);	向X/Y/Z方向旋转,旋转变换	rotate ( 0deg );	绕着对角线中心顺时针旋转
+transform-origin:center center(默认) / 50% 50% / 0px 0px ;	left/top/right/bottom四个值选择	//改变旋转中心
+
+transform:scale(0水平方向缩放,0竖直方向缩放);		缩放
+transform:skewX(0deg) / skewY(0deg)/skew( x ,y与origin取值一样 ) ;	倾斜,竖直方向是X轴，水平方向是Y轴
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+3D
+基本构成：舞台+在3D空间占据的位置+摄像头
+transform-style:preserve-3d;		父元素设置使所有子元素占据3d空间
+perspective:0px;			产生3d效果
+perspective-origin:left top/0% 0%/0px 0px;
+transform：rotateX(0deg)沿X轴旋转/rotateY(0deg)沿X轴旋转/rotateZ(0deg)沿Z轴旋转
+	translateX()沿X轴移动/translateY()沿Y轴移动/translateZ()沿Z轴移动
+opacity：0~1；透明度
+==============================================================================
+					阴影和渐变
+阴影
+box-shadow:0水平 0竖直 0模糊 0大小 颜色 inset内阴影 /默认外阴影
+渐变：可用逗号再写背景
+线性渐变
+background-image:linear-gradient（red,green）;从上到下渐变	可写更多颜色
+background-image:linear-gradient（red 0%，red 50%,green 0%，green 50%）;一半全红，一半全绿，可用像素写
+background-image:linear-gradient（0deg ，red 0%，red 50%,green 0%，green 50%）;0deg向上，90deg向右，180deg向下，270deg向左
+									度数可改变渐变方向
+background-image:repeating-linear-gradient（red,green）;有重复使用的效果
+
+扩散渐变
+background-image:radial-gradient（red,green）;从内到外扩散
+background-image:radial-gradient（circle at left top, red,green）//ellipse椭圆/circle圆 at left top规定扩散的形状和位置可用像素和%
+
+background-image:repeating-radial-gradient（red,green）;重复使用
+
+==============================================================================
+					表格
+<thead>标题，<tr>定义表格行，<th>定义表格标题，<td>定义表格单元格
+
+<table>
+	<caption>表格标题</caption>
+	<thead>标题
+		<tr>定义表格行
+			<th>姓名</th>定义表格标题
+			<th>身高</th>
+			<th>成绩</th>
+			<th>体重</th>
+		</tr>
+	</thead>
+	<tbody>内容
+		<tr>
+			<td>玄武</td>定义表格单元格
+			<td>170</td>
+			<td>100</td>
+			<td>100</td>
+		</tr>
+		<tr>
+			<td>玄武</td>
+			<td>170</td>
+			<td>100</td>
+			<td>100</td>
+		</tr>
+		<tr>
+			<td>玄武</td>
+			<td>170</td>
+			<td>100</td>
+			<td>100</td>
+		</tr>
+		<tr>
+			<td>玄武</td>
+			<td>170</td>
+			<td>100</td>
+			<td>100</td>
+		</tr>
+	</tbody>
+<table>
+
+colspan="合并格数"跨列合并
+<td colspan="3"></td>//合并后去掉合并的td
+<td></td>
+<td></td>
+css属性：border-collapse:collapse合并表格中的边框；给table设置
+
+============================================================================
+					表单和框架
+框架
+<iframe src="路径"></iframe>	//框架
+属性：
+	src		默认的网址的路径
+	name		框架的名字
+	frameborder	框架的边框：0代表没有边框。1代表有边框，该属性设置的边框像素大小只显示1px；
+a标签中的 target 属性写框架的 name 即可在框架中打开网页
+
+------------------------------------------------------------------------------------------------------------------------------
+表单	重要属性：placeholder="请输入密码"定义提示属性
+<form  action="表单提交地址，属性内部是一个链接"  method="get获取信息 :默认/ post发送信息"提交方法>	//需要传输数据给后台可写，不然												无需写，存储表单元素的区域
+	<input type="text"  name=""  value=""  placeholder="用户未输入信息时的提示信息">//文本框
+	<input type="password">密码框
+	<input type="radio" name=""  id="a"   checked选择被选到的元素>//单选框
+	<label  for="a">：男</label>		
+	<input type="radio" name=""  id="b"></input><label  for="b">：女</label>		//通过name属性来确定是一套单											 	  选框，只能选其一,
+		：checked	选择被选到的元素，适用于单选或多选框
+
+		：focus		能够选到获得焦点的元素，适用于a,input等元素
+				outline轮廓属性为0可取消焦点蓝色边框
+
+	<fieldset>	//表单中开辟一个独立的区域
+		<legend>信息手机</legend>			//相当于给这个filedset的标题，描述用途，他是包含在filedset中
+		<input type="checkbox"><label></label>		//多选框
+		<input type="checkbox"><label></label>
+		<input type="checkbox"><label></label>
+	</fieldset>	
+
+	<input type="submit">					//提交按钮，传输数据给后台
+	<input type="number" step="" max="" min="">		//数字输入，显示 上下调整按钮
+	<input type="range">					//滑块
+	<input type="date/week/month/datetime-local">		//年月日，手动输入，上下点击/周/月份/日期信息输入
+	<input type="color">					//颜色
+	<input type="email">					//邮箱
+	<input type="reset">					//重置按钮，重置该表单的前台数据
+	<input type="file"  multiple选择多个文件>			//选择文件夹中的文件，通过提交按钮传给后台
+	<input type="buttom">					//点击按钮，无任何效果
+	<input type="image" src="路径">				//图片按钮，无任何效果
+
+下拉列表		//select和option控件
+	<select size="1">	size显示下拉列表中可见项
+		<option  selected默认选项>北京</option>	//选项
+		<option>上海</option>
+		<option>深圳</option>
+	</select>
+
+
+	<textarea  cols="文本域宽度"  rows="文本域高度">	//
+	</textarea>
+			resize:none去除/vertical垂直/horizontal水平;	//设置拉伸方向
+
+	<input type='text' list="vallist">		//一组下拉列表，组合标签
+	<datalist id="vallist">
+		<option value="JS">JS</option>
+		<option value="CSS">CSS</option>
+		<option value="HTML">HTML</option>
+	</datalist>
+</form>
+	
+	<details>				//详细介绍某个东西
+		<summary>哆啦A梦</summary>
+		<p>一个小机器人</p>
+	</details>
+	<progress  max="10"设置进度条长度  value="1"设置占据进度条空间></progress>	//进度条
+	<meter min="0"   max="50"  value="30"><meter>	//刻度条
+=========================================================================
+					动画
+animation：name  0s  ;	//动画名字，动画周期，复合写法
+animation-name:name;	动画名字
+animation-duration:0s;	动画周期
+animation-direction:norml / reverse(反向动画) / altemte (先正后反  执行两次运动次数) / altemate-reverse (先反，再正，执行2次)
+animation-play-state:paused 指定暂停的动画 / running指定正在运行的动画
+animation-iteration-count:次数/infinite循环;	动画次数
+animation-timing-function:linear/匀速   。。。。steps()	//执行步数   例如:0-50%之间的动画帧几步完成
+animation-delay:0s;	动画延迟
+animation-fill-mode: ; 决定动画的起始位置
+						none---原始状态 > 动画开始 >原始状态
+						forwards---原始状态 > 动画开始 >动画帧的100%
+						backwards---动画帧的0% > 动画开始 >原始状态
+						both---动画帧的0% > 动画开始 >动画帧的100%
+@keyframes  name//命名{	//关键帧
+		0%{	}//初始位置 
+		50%{	}//中间位置
+		100%{	}//终点位置
+	}
+
+===========================================================================
+					弹性盒模型
+父元素	flex(flex container)			float/clear/vertical-align失效
+display:flex开启块级弹性盒模型 / inline-flex开启行内快弹性盒模型;	//弹性盒模型，两者区别在于对外界不同，内部元素都变为块级，
+							子元素默认只能显示在一行
+flex-direction:row左右 / row-reverse右左 / column上下 / column-reverse下上;		//控制主轴和交叉轴方向，默认左右
+flex-wrap:norwrap不换行/wrap换行/wrap-reverse换行，第一行在下面(从下到上排列);	修改为子元素可换行
+flex-flow:	row norwrap默认	//flex-direction和flex-wrap的复合写法
+justify-content:flex-end主轴终点 / flex-start起点（默认）/ center居中 / space-around子元素之间的距离 / space-between子元素之间安定距离与容器无距离 	//控制水平位置
+align-items: flex-end主轴终点 / flex-start起点（默认）/ center居中 /baseline项目的第一行文字基线对齐/stretch如果项目没有设置高度或者高度auto，将会占满这个容器的高度，针对一行使用
+align-content:属性与justify-content一样,不过必须要有多根交叉轴时才生效 //控制交叉轴排列方式
+align-self:属性center/first-start/first-end/stretch拉伸元素以适应父级容器
+
+子元素	flex项目(flex item)
+order	//控制弹性子元素在主轴上的位置，值越小越靠前
+flex-grow:1;	//主轴方向有剩余空间时，按等比例生长，扩大
+flex-shrink:1;	//主轴方向按等比例缩放，子元素总宽度大于父元素宽度时才有效
+flex-basis:;		//在主轴方向有空间时设置子元素宽度
+flex: 0 1 auto;	//复合属性,默认值
+
+============================================================================
+					响应式布局
+两种适配方案：
+1.根据用户的不同，发送不同的网页：（自适应）
+	工作量大，绝对能适配成功
+2.发送一个网页，然后自己能适应所有的用户，（响应式）
+	工作量小，可能会出现不适应
+
+
+@media all所有媒体 / screen 彩屏设备/ print打印设备	//检测媒体类型
+not	用于排除特定媒体类型，not print等
+only	只在特定媒体类型，only screen等
+and	并且，screen and (min-width:900px)网页宽度大于900时起作用
+
+媒体特性		用and连接
+width:
+max-width:	最大宽度
+min-width:	最小宽度 
+orientation:portrait	竖屏，移动端
+orientation:landscape	横屏，移动端
+--------------------------------------------------------------------------------------------------------------------------------
+样式优先级		//行内样式  >  内嵌样式 	行内样式  >  外链样式	内嵌样式与外链样式没有优先级，由自上而下解析
+写在style中的是内嵌样式
+写在标签里的是行内样式
+写在外链的css文件中的样式由link引入的是外链样式
+!important		//最高优先级，写在属性后面,width:200px!important;
+
+rem布局
+rem单位：根据html标签的字体大小控制的单位    1rem
+绝对的衡量坐标：html标签的font-size：值；为1rem大小
+html字体大小  => 页面所有的内容的大小，前提是所有的单位都是rem单位
+
+---------------------------------------------------------------------------------------------------------------------------------
+滤镜
+filter:
+属性：
+	brightness:()	亮度倍数
+	contrast(%)	对比度
+	blur(1px)		模糊半径，值越大越模糊
+	grayscale(%)	灰色色阶
+	sepia(1)		褐色色阶
+	drop-shadow	滤镜阴影，谷歌内核不支持阴影大小
+
+遮罩/蒙版
+mask：目前-webkit-内核的浏览器支持（谷歌，safafi，opera），其他都不支持
+	-weibit-background-imagea	:url();	遮罩图片
+	属性类似background-image，不过前面要加-weibit-
+
+倒影
+-weibit-box-refllect:above上 ，below下，left左，right右 
+offset(偏移量):用长度定义倒影与对象之间的间隔
+-weibit-box-image:遮罩图像---none(无遮罩)，url();
+==============================================================================
+					阿里图标
